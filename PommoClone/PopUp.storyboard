@@ -50,6 +50,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Cancel">
                                                     <color key="baseForegroundColor" red="0.84705882349999995" green="0.27058823529999998" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="cancelBtnClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fZu-wd-eVX"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDb-JV-cVx">
                                                 <rect key="frame" x="129" y="0.0" width="91" height="34.5"/>
@@ -58,6 +61,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Save">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="saveBtnClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eyH-gd-QCY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -91,9 +97,10 @@
                     </view>
                     <connections>
                         <outlet property="backGroundBtn" destination="Xuu-8T-4Vk" id="ivp-cf-NjJ"/>
-                        <outlet property="cancelBtn" destination="VNF-PX-ofS" id="xb1-XW-6yb"/>
+                        <outlet property="cancelBtn" destination="VNF-PX-ofS" id="dWf-rO-ux4"/>
                         <outlet property="popUpView" destination="it3-rA-nAc" id="Yts-y2-c0J"/>
                         <outlet property="saveBtn" destination="MDb-JV-cVx" id="e91-MM-ZST"/>
+                        <outlet property="textField" destination="Lwl-hN-Pwa" id="43h-EL-SBc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
