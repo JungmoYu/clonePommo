@@ -200,6 +200,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="play.circle" catalog="system">
                                                     <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="startTimerBtnClicked:" destination="ZFx-Zz-R0L" eventType="touchUpInside" id="eoh-tM-Wjn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndJ-JM-0pj" userLabel="StopBtn">
                                                 <rect key="frame" x="103.5" y="0.0" width="103.5" height="50"/>
@@ -207,6 +210,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="pause.circle" catalog="system">
                                                     <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="pauseTimerBtnClicked:" destination="ZFx-Zz-R0L" eventType="touchUpInside" id="OyG-yP-njs"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKI-gq-hSo" userLabel="DeleteProjectBtn">
                                                 <rect key="frame" x="207" y="0.0" width="103.5" height="50"/>
@@ -214,6 +220,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="stop.circle" catalog="system">
                                                     <color key="baseForegroundColor" red="0.84705882349999995" green="0.27058823529999998" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="stopTimerBtnClicked:" destination="ZFx-Zz-R0L" eventType="touchUpInside" id="Y2s-Be-s7i"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.89411771299999998" green="0.90196073060000004" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -257,8 +266,11 @@
                         <outlet property="addProjectBtn" destination="Ob7-bV-a8u" id="rKC-gP-l9n"/>
                         <outlet property="bgView" destination="VGL-gJ-sah" id="fpg-D6-XdE"/>
                         <outlet property="hiddenHStack" destination="Rjk-zD-IyD" id="Rce-mt-suG"/>
+                        <outlet property="pauseTimerBtn" destination="ndJ-JM-0pj" id="zGp-Nm-8FS"/>
                         <outlet property="projectNameLabel" destination="Oiy-rZ-Y2G" id="cn5-wL-kSP"/>
                         <outlet property="restOfTimeLabel" destination="HPf-H7-fsX" id="Ffi-rq-wtX"/>
+                        <outlet property="startTimerBtn" destination="9tn-KD-g3g" id="t4T-VA-lDo"/>
+                        <outlet property="stopTimerBtn" destination="tKI-gq-hSo" id="79P-wP-09U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHL-3W-HN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

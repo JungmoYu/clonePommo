@@ -12,7 +12,10 @@ class ViewController: UIViewController {
     // MARK: - properties
     var isProjectExist: Bool = false
     var projectNameFromTextField: String?
+    var timer: Timer?
     
+    var minute: Int = 25
+    var second: Int = 0
     
     
     // MARK: - IBOutlet
@@ -21,6 +24,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var projectNameLabel: UILabel!
     @IBOutlet weak var restOfTimeLabel: UILabel!
     @IBOutlet weak var hiddenHStack: UIStackView!
+    
+    @IBOutlet weak var startTimerBtn: UIButton!
+    @IBOutlet weak var pauseTimerBtn: UIButton!
+    @IBOutlet weak var stopTimerBtn: UIButton!
     
     
     // MARK: - Lifecycle methods
@@ -40,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     func changeRestOfTimeLabel() {
-        self.restOfTimeLabel.text = "XX분 XX초"
+        self.restOfTimeLabel.text = "25:00"
         self.restOfTimeLabel.font = .systemFont(ofSize: 25)
     }
     
@@ -54,11 +61,41 @@ class ViewController: UIViewController {
         self.hiddenHStack.isHidden = false
     }
     
+    func makeAndFireTimer() {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [ unowned self ] (timer: Timer) in
+            self.second -= 1
+            if self.second < 0 {
+                self.second = 59
+                self.minute -= 1
+            }
+            
+            if self.second <= 0 && self.minute <= 0 {
+                self.invalidateTimer()
+                self.startTimerBtn.isSelected = false
+                self.minute = 25
+                self.second = 0
+            }
+            
+            self.updateRestOfTimeLabel()
+        })
+        
+        self.timer?.fire()
+    }
+    
+    func invalidateTimer() {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
+    
+    func updateRestOfTimeLabel() {
+        let timelabelText: String = String(format: "%02ld:%02ld", self.minute, self.second)
+        self.restOfTimeLabel.text = timelabelText
+    }
+    
     // MARK: - IBAction methods
     @IBAction func addProjectBtnClicked(_ sender: UIButton) {
 
         let storyBoard = UIStoryboard.init(name: "PopUp", bundle: nil)
-//        let PopUpVC = storyBoard.instantiateViewController(withIdentifier: "PopUp") as! PopUpViewController
         
         guard let popUpVC = storyBoard.instantiateViewController(withIdentifier: "PopUp") as? PopUpViewController else { return }
         
@@ -71,9 +108,37 @@ class ViewController: UIViewController {
         
     }
     
-
+    @IBAction func startTimerBtnClicked(_ sender: UIButton) {
+        if !sender.isSelected {
+            sender.isSelected = !sender.isSelected
+            self.makeAndFireTimer()
+        }
+        self.stopTimerBtn.isSelected = false
+        self.pauseTimerBtn.isSelected = false
+    }
+    
+    @IBAction func pauseTimerBtnClicked(_ sender: UIButton) {
+        if !sender.isSelected {
+            sender.isSelected = !sender.isSelected
+        }
+        self.startTimerBtn.isSelected = false
+        self.stopTimerBtn.isSelected = false
+        self.invalidateTimer()
+    }
+    
+    @IBAction func stopTimerBtnClicked(_ sender: UIButton) {
+        if !sender.isSelected {
+            sender.isSelected = !sender.isSelected
+        }
+        self.startTimerBtn.isSelected = false
+        self.pauseTimerBtn.isSelected = false
+        self.invalidateTimer()
+    }
+    
 }
 
+
+    // MARK: - Delegate methods
 extension ViewController: PopUpViewControllerDelegate {
     func passText(_ text: String) {
         self.changeProjectNameLabel(text)
