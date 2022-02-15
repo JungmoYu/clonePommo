@@ -13,6 +13,8 @@
 		C6A831F927BAA116009369E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A831F727BAA116009369E3 /* Main.storyboard */; };
 		C6A831FB27BAA117009369E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A831FA27BAA117009369E3 /* Assets.xcassets */; };
 		C6A831FE27BAA117009369E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A831FC27BAA117009369E3 /* LaunchScreen.storyboard */; };
+		C6A8320627BB711B009369E3 /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A8320527BB711B009369E3 /* PopUp.storyboard */; };
+		C6A8320827BB7135009369E3 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8320727BB7135009369E3 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		C6A831FA27BAA117009369E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A831FD27BAA117009369E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6A831FF27BAA117009369E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A8320527BB711B009369E3 /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		C6A8320727BB7135009369E3 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +63,11 @@
 				C6A831F127BAA116009369E3 /* AppDelegate.swift */,
 				C6A831F327BAA116009369E3 /* SceneDelegate.swift */,
 				C6A831F527BAA116009369E3 /* ViewController.swift */,
-				C6A831F727BAA116009369E3 /* Main.storyboard */,
-				C6A831FA27BAA117009369E3 /* Assets.xcassets */,
+				C6A8320727BB7135009369E3 /* PopUpViewController.swift */,
 				C6A831FC27BAA117009369E3 /* LaunchScreen.storyboard */,
+				C6A831F727BAA116009369E3 /* Main.storyboard */,
+				C6A8320527BB711B009369E3 /* PopUp.storyboard */,
+				C6A831FA27BAA117009369E3 /* Assets.xcassets */,
 				C6A831FF27BAA117009369E3 /* Info.plist */,
 			);
 			path = PommoClone;
@@ -128,6 +134,7 @@
 				C6A831FE27BAA117009369E3 /* LaunchScreen.storyboard in Resources */,
 				C6A831FB27BAA117009369E3 /* Assets.xcassets in Resources */,
 				C6A831F927BAA116009369E3 /* Main.storyboard in Resources */,
+				C6A8320627BB711B009369E3 /* PopUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +148,7 @@
 				C6A831F627BAA116009369E3 /* ViewController.swift in Sources */,
 				C6A831F227BAA116009369E3 /* AppDelegate.swift in Sources */,
 				C6A831F427BAA116009369E3 /* SceneDelegate.swift in Sources */,
+				C6A8320827BB7135009369E3 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
