@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var minute: Int = 25
     var second: Int = 0
     
+    let startTimeString: String = "25:00"
+    
     
     // MARK: - IBOutlet
     @IBOutlet weak var addProjectBtn: UIButton!
@@ -46,8 +48,14 @@ class ViewController: UIViewController {
         self.hiddenHStack.isHidden = true
     }
     
+    func startProject(project: String) {
+        changeAddProjectBtn()
+        changeRestOfTimeLabel()
+        changeProjectNameLabel(project)
+    }
+    
     func changeRestOfTimeLabel() {
-        self.restOfTimeLabel.text = "25:00"
+        self.restOfTimeLabel.text = self.startTimeString
         self.restOfTimeLabel.font = .systemFont(ofSize: 25)
     }
     
@@ -74,6 +82,7 @@ class ViewController: UIViewController {
                 self.startTimerBtn.isSelected = false
                 self.minute = 25
                 self.second = 0
+                self.startTimerBtn.isEnabled = true
             }
             
             self.updateRestOfTimeLabel()
@@ -109,30 +118,35 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startTimerBtnClicked(_ sender: UIButton) {
-        if !sender.isSelected {
-            sender.isSelected = !sender.isSelected
+        
+        if sender.isEnabled {
+            sender.isEnabled = !sender.isEnabled
             self.makeAndFireTimer()
         }
-        self.stopTimerBtn.isSelected = false
-        self.pauseTimerBtn.isSelected = false
+        
+        self.stopTimerBtn.isEnabled = true
+        self.pauseTimerBtn.isEnabled = true
     }
     
     @IBAction func pauseTimerBtnClicked(_ sender: UIButton) {
-        if !sender.isSelected {
-            sender.isSelected = !sender.isSelected
+        if sender.isEnabled {
+            sender.isEnabled = !sender.isEnabled
+            self.invalidateTimer()
         }
-        self.startTimerBtn.isSelected = false
-        self.stopTimerBtn.isSelected = false
-        self.invalidateTimer()
+        
+        self.startTimerBtn.isEnabled = true
+        self.stopTimerBtn.isEnabled = true
+        
     }
     
     @IBAction func stopTimerBtnClicked(_ sender: UIButton) {
-        if !sender.isSelected {
-            sender.isSelected = !sender.isSelected
+        if sender.isEnabled {
+            sender.isEnabled = !sender.isEnabled
+            self.invalidateTimer()
         }
-        self.startTimerBtn.isSelected = false
-        self.pauseTimerBtn.isSelected = false
-        self.invalidateTimer()
+        
+        self.startTimerBtn.isEnabled = true
+        self.pauseTimerBtn.isEnabled = true
     }
     
 }
@@ -141,8 +155,6 @@ class ViewController: UIViewController {
     // MARK: - Delegate methods
 extension ViewController: PopUpViewControllerDelegate {
     func passText(_ text: String) {
-        self.changeProjectNameLabel(text)
-        self.changeRestOfTimeLabel()
-        self.changeAddProjectBtn()
+        self.startProject(project: text)
     }
 }
